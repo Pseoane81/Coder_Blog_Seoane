@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+{% load static %}
+
+<h1 class="blog-header-logo text-dark">Agregar entrada de blog</h1>
+
+{% block contenido-home %}
+
+<br>
+<h2 >Aquí puede crear nuevos posteos</h2>
+<form action="{% url 'nuevopost' %}" method="POST">
+    {% csrf_token %}
+
+    <table>
+
+        {{ form.as_table }}
+
+    </table>
+
+    
+    <input type="submit" value="Enviar"> <a class="btn btn-sm btn-outline-secondary" href="{% url 'home' %}">Inicio</a>
+
+</form>
+
+{% endblock %}
