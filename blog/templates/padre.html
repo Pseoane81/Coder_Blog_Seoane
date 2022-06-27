@@ -24,7 +24,13 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Sobre Mi</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nuevopost' %}">Nuevo Post</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Ingresar</a></li>
+                        {% if not request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'editarperfil' %}">Editar Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'perfiles' %}">Perfiles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Salir</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'tablapost' %}">Mis Blogs</a></li>
                     </ul>
                 </div>
