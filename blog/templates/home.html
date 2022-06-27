@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>
-                    <p class="card-text">{{n.contenido}}</p>
+                    <div class="card-text overtext" text-overflow="ellipsis" >{{n.contenido}}</div>
                     <a class="btn btn-primary" href="#!">Read more →</a>
                 </div>
                 {% endfor %}

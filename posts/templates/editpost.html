@@ -1,13 +1,13 @@
 {% extends 'padre.html' %}
 {% load static %}
 
-<h1 class="blog-header-logo text-dark">Agregar entrada de blog</h1>
+<h1 class="blog-header-logo text-dark">Editar entrada de blog</h1>
 
 {% block contenido-home %}
 
 <br>
-<h2 >Aquí puede crear nuevos posteos</h2>
-<form action="{% url 'nuevopost' %}" method="POST">
+<h2 >Editar POST</h2>
+<form action="" method="POST">
     {% csrf_token %}
 
     <table>
