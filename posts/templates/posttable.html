@@ -9,6 +9,8 @@
           <th scope="col">#</th>
           <th scope="col">Fecha</th>
           <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Genero</th>
           <th scope="col">Ver mas</th>
           <th scope="col">Editar</th>
           <th scope="col">Borrar</th>
@@ -21,6 +23,8 @@
           <td >{{n.id}}</td>
           <td>{{n.fecha}}</td>
           <td>{{n.titulo}}</td>
+          <td>{{n.autor}}</td>
+          <td>{{n.genero}}</td>
           <td><a href="{% url 'post' n.id%}">Ver mas...</td>
           <td><a href="{% url 'editpost' n.id%}">Editar</a></td>
           <td><a href="{% url 'deletepost' n.id%}">Borrar</td>

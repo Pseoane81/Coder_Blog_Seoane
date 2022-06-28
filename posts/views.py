@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.forms.models import model_to_dict
 from posts.models import Post
+from users.models import User
 from posts.forms import PostForm
 from django.contrib.auth.decorators import login_required
 
@@ -10,19 +11,19 @@ from django.contrib.auth.decorators import login_required
 def nuevopost(request): #agrega nuevos posteos
     
     if request.method == 'POST':
-
-        form = PostForm(request.POST)
+        user= User.objects.all()
+        form = PostForm(request.POST, request.FILES)
 
         if form.is_valid():
 
             info = form.cleaned_data
-
-            blog = Post(titulo=info['titulo'], contenido=info['contenido'], fecha=info['fecha'])
+            blog = Post(titulo=info['titulo'], contenido=info['contenido'], fecha=info['fecha'],autor=info['autor'],genero=info['genero'])
+            blog.imagen = request.FILES['imagen']
 
             blog.save()
 
             post= Post.objects.all()
-
+            
             return render(request, 'home.html',{"posts":post})
 
     else:

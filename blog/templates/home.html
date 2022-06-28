@@ -18,12 +18,12 @@
         <!-- Featured blog post-->
         <div class="card mb-4">
                 {% for n in posts %}
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                <a href="#!"><img class="card-img-top" src="{{ n.imagen }}" alt="..." /></a>
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>
-                    <div class="card-text overtext" text-overflow="ellipsis" >{{n.contenido}}</div>
-                    <a class="btn btn-primary" href="#!">Read more →</a>
+                    <div class="card-text overtext">{{n.contenido}}</div>
+                    <a class="btn btn-primary" href="{% url 'post' n.id%}">Read more →</a>
                 </div>
                 {% endfor %}
             </div>

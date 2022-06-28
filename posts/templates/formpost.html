@@ -7,7 +7,7 @@
 
 <br>
 <h2 >Aquí puede crear nuevos posteos</h2>
-<form action="{% url 'nuevopost' %}" method="POST">
+<form action="{% url 'nuevopost' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     <table>
