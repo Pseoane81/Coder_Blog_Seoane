@@ -18,7 +18,7 @@
         <!-- Featured blog post-->
         <div class="card mb-4">
                 {% for n in posts %}
-                <a href="#!"><img class="card-img-top" src="{{ n.imagen }}" alt="..." /></a>
+                <a href="#!"><img class="card-img-top" src="media/{{ n.imagen }}" alt="..." /></a>
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>
