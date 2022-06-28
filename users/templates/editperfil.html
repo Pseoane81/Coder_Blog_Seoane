@@ -2,14 +2,12 @@
 {% load static %}
 
 {% block contenido-home %}
-<h1>Ingresa</h1>
-<form action="" method="POST">
+<h1>Modificar {{usuario.username}}</h1>
+<form action="" method="post">
     {% csrf_token %}
 
     {{form.as_p}}
-    
-    <button type="">Iniciar</button>
-
+    <button type="submit">Modificar</button>
 </form>
 
 {% endblock %}
