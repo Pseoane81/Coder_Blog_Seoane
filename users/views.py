@@ -44,14 +44,17 @@ def entrar(request):
     return render(request, 'login.html', {'form': form})
 
 
+
 class EditarPerfil(View):
+    
     def get(self, request):
         usuario = request.user
         form = UserEditForm(initial={"username":usuario.username})
         return render(request, 'editperfil.html', {'form': form,"usuario":usuario})
 
+    
     def post(self, request):
-        usuario = request.user
+        usuario = request.User
         form = UserEditForm(request.POST)
         if form.is_valid():
             informacion = form.cleaned_data
@@ -69,13 +72,13 @@ class EditarPerfil(View):
 
 
 
-
+@login_required
 def salir(request):
     logout(request)
     return redirect('home')
 
 
-
+@login_required
 def borrarperfil(request,id):
     perfil= User.objects.get(id=id)
     perfil.delete()
@@ -83,7 +86,7 @@ def borrarperfil(request,id):
     form = UsuarioModelForm()
     return render(request, "register.html",{"form":form})
 
-
+@login_required
 def perfiles(request):
     user= User.objects.all()
 

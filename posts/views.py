@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.forms.models import model_to_dict
 from posts.models import Post
 from posts.forms import PostForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def nuevopost(request): #agrega nuevos posteos
     
     if request.method == 'POST':
@@ -30,13 +32,13 @@ def nuevopost(request): #agrega nuevos posteos
     return render(request, 'formpost.html', {"form":form})
 
 
-
+@login_required
 def tablapost(request):
     post= Post.objects.all()
 
     return render(request, 'posttable.html',{"posts":post})
 
-
+@login_required
 def post(request,id):
     
     post = Post.objects.filter(id=id)
@@ -44,7 +46,7 @@ def post(request,id):
     
     return render(request, 'post.html',{"posts":post[0]})
 
-
+@login_required
 def deletepost(request,id):
     
     post  = Post.objects.get(id=id)
@@ -54,7 +56,7 @@ def deletepost(request,id):
     
     return render(request, 'posttable.html',{"posts":post})
 
-
+@login_required
 def editpost(request,id):
     post = Post.objects.get(id=id)
     
