@@ -7,5 +7,8 @@ from posts.models import Post
 
 def home(request):
     post= Post.objects.all()
-    print(post[10].imagen)
     return render(request, 'home.html',{"posts":post})
+
+
+def about(request):
+    return render(request, 'about.html')

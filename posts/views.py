@@ -62,12 +62,15 @@ def editpost(request,id):
     post = Post.objects.get(id=id)
     
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             info = form.cleaned_data
             post.titulo = info["titulo"] 
             post.contenido = info["contenido"]
             post.fecha = info["fecha"]
+            post.autor = info["autor"]
+            post.genero = info["genero"]
+            post.imagen = request.FILES['imagen']
             post.save()
             post= Post.objects.all()
             return render(request, 'posttable.html',{"posts":post})
