@@ -8,15 +8,22 @@
         <div class="text-center my-5">
             <h1 class="fw-bolder">Bienvenido a mi BLOG!</h1>
             <p class="lead mb-0">Publicaciones para el publico general!</p>
-        </div>
+                    <div class=" busqueda">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                        </div>
+                    </div>
+                
+        
     </div>
 </header>
 <div class="card mb-4 lista">
     <ul class="card-header listaul" >
-        <li><a href="#!">Interes Gral</a></li>
-        <li><a href="#!">Informatica</a></li>
-        <li><a href="#!">Programacion</a></li>
-        <li><a href="#!">Tutoriales</a></li>
+        <li><a href="{% url 'integral' %}">Interes Gral</a></li>
+        <li><a href="{% url 'informatica' %}">Informatica</a></li>
+        <li><a href="{% url 'programacion' %}">Programacion</a></li>
+        <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
     </ul>
 </div>
 <!-- Page content-->
@@ -30,6 +37,8 @@
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>
+                    <h4 class="small text-muted">Autor: {{posts.autor}}</h4>
+                    <h4 class="small text-muted">Categoria: {{posts.genero}}</h4>
                     <div class="card-text overtext">{{n.contenido}}</div>
                     <a class="btn btn-primary" href="{% url 'post' n.id%}">Read more →</a>
                 </div>
@@ -58,17 +67,7 @@
             </nav>
         </div>
         <!-- Side widgets-->
-        <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header">Busqueda</div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                    </div>
-                </div>
-            </div>
+        
           <!-- Categories widget-->
     
 </div>

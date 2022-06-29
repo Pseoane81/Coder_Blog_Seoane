@@ -7,5 +7,9 @@ urlpatterns = [
     path('tablapost/', views.tablapost, name="tablapost"),
     path('post/<int:id>', views.post, name="post"),
     path("deletepost/<int:id>", views.deletepost, name="deletepost"),
-    path("editpost/<int:id>", views.editpost, name="editpost")
+    path("editpost/<int:id>", views.editpost, name="editpost"),
+    path("infromatica/", views.informatica, name="informatica"),
+    path("integral/", views.integral, name="integral"),
+    path("programacion/", views.programacion, name="programacion"),
+    path("tutoriales/", views.tutoriales, name="tutoriales")
 ]

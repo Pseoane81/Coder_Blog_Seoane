@@ -54,7 +54,7 @@ class EditarPerfil(View):
 
     
     def post(self, request):
-        usuario = request.User
+        usuario = request.user
         form = UserEditForm(request.POST)
         if form.is_valid():
             informacion = form.cleaned_data
@@ -64,7 +64,7 @@ class EditarPerfil(View):
             password = informacion["password1"]
             usuario.set_password(password)
             usuario.save()
-            salir()
+            
             return redirect('home')
         else:
             form = UserEditForm()

@@ -77,3 +77,40 @@ def editpost(request,id):
     else:
         form = PostForm()
     return render(request, 'editpost.html', {"form":form})
+
+
+@login_required
+def tutoriales(request):
+    
+    post = Post.objects.filter(genero="Tutoriales")
+    
+    
+    return render(request, 'filter.html',{"posts":post})
+
+
+@login_required
+def informatica(request):
+    
+    post = Post.objects.filter(genero="Informatica")
+    
+    
+    return render(request, 'filter.html',{"posts":post})
+
+
+@login_required
+def programacion(request):
+    
+    post = Post.objects.filter(genero="Programacion")
+    
+    
+    return render(request, 'filter.html',{"posts":post})
+
+
+@login_required
+def integral(request):
+    
+    post = Post.objects.filter(genero="Interes Gral")
+    
+    
+    return render(request, 'filter.html',{"posts":post})
+
