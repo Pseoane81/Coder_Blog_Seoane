@@ -8,10 +8,12 @@
         <div class="text-center my-5">
             <h1 class="fw-bolder">Bienvenido a mi BLOG!</h1>
             <p class="lead mb-0">Publicaciones para el publico general!</p>
+            <form action="{% url 'resbusqueda' %}" method="get">
                     <div class=" busqueda">
                         <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <input class="form-control" name="contenido" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="submit">Go!</input>
+                             </form>   
                         </div>
                     </div>
                 

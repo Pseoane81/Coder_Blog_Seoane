@@ -11,5 +11,7 @@ urlpatterns = [
     path("infromatica/", views.informatica, name="informatica"),
     path("integral/", views.integral, name="integral"),
     path("programacion/", views.programacion, name="programacion"),
-    path("tutoriales/", views.tutoriales, name="tutoriales")
-]
+    path("tutoriales/", views.tutoriales, name="tutoriales"),
+    path("resbusqueda/", views.res_busqueda, name="resbusqueda"),
+    
+    ]
