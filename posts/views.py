@@ -118,7 +118,8 @@ def res_busqueda(request):
     if request.GET['contenido']:
         contenido=request.GET['contenido']
         data= Post.objects.filter(contenido__icontains = contenido)
-        return render(request, "busqueda.html", {"posts": data})
-    else:
-        return render(request, "busqueda404.html")
+        if data:
+            return render(request, "busqueda.html", {"posts": data})
+        else:
+            return render(request, "busqueda404.html")
 

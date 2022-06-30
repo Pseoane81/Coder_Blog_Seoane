@@ -1,5 +1,5 @@
 from django.urls import path
-from users.views import Registro, salir, entrar, EditarPerfil, borrarperfil, perfiles
+from users.views import Registro,  salir, entrar,  EditarPerfil, borrarperfil, perfiles
 from posts.views import *
 from users import views
 

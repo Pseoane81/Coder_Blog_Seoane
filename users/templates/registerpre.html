@@ -1,0 +1,13 @@
+{% extends 'padre.html' %}
+{% load static %}
+
+{% block contenido-home %}
+<h1>Registro</h1>
+<form action="" method="post">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <button type="submit">Registrar</button>
+</form>
+
+{% endblock %}

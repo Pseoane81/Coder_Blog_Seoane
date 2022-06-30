@@ -1,0 +1,15 @@
+{% extends 'padre.html' %}
+{% load static %}
+
+{% block contenido-home %}
+<h1>Ingresa</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    
+    <button type="">Iniciar</button>
+
+</form>
+
+{% endblock %}

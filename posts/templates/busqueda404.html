@@ -3,6 +3,27 @@
 
 {% block contenido-home %}
 
-<h1>SIN DATOS</h1>
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <p class="lead mb-0">Nueva busqueda</p>
+                <form action="{% url 'resbusqueda' %}" method="get">
+                    <div class=" busqueda">
+                        <div class="input-group">
+                            <input class="form-control" name="contenido" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn btn-primary" id="button-search" type="submit">Go!</input>
+                        </div>
+                    </div>
+                    
+                </form>   
+        </div>
+    </div>
+</header>
+
+<h1>La busqueda no arrojo resultados</h1>
+
+
+
+
 
 {% endblock  %}

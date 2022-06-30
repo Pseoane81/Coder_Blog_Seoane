@@ -45,11 +45,13 @@ def entrar(request):
 
 
 
+
 class EditarPerfil(View):
     
     def get(self, request):
         usuario = request.user
         form = UserEditForm(initial={"username":usuario.username})
+        print(form)
         return render(request, 'editperfil.html', {'form': form,"usuario":usuario})
 
     
@@ -91,3 +93,7 @@ def perfiles(request):
     user= User.objects.all()
 
     return render(request, 'userstable.html',{"user":user})
+
+
+
+
