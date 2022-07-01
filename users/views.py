@@ -7,7 +7,8 @@ from django.shortcuts import redirect, render
 from django.template import loader
 from django.views.generic import View
 from users.forms import UsuarioModelForm, UserEditForm
-from users.models import User
+from users.models import User, avatar
+from posts.models import Post
 
 
 
@@ -17,9 +18,11 @@ class Registro(View):
         return render(request, 'register.html', {'form': form})
 
     def post(self, request):
-        form = UsuarioModelForm(request.POST)
+        form = UsuarioModelForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
+            img = avatar(image=request.FILES['imagen'],user_id=user.id)
+            img.save()
             login(request, user)
             return redirect('home')
         else:
@@ -62,6 +65,7 @@ class EditarPerfil(View):
             informacion = form.cleaned_data
 
             usuario.username = informacion["username"]
+            usuario.first_name = informacion["last_name"]
             usuario.last_name = informacion["last_name"]
             password = informacion["password1"]
             usuario.set_password(password)
@@ -93,6 +97,15 @@ def perfiles(request):
     user= User.objects.all()
 
     return render(request, 'userstable.html',{"user":user})
+
+
+@login_required
+def userpost(request, id):
+    user= User.objects.get(id=id)
+    ps= Post.objects.filter(autor=user.username)
+    avatares = avatar.objects.filter(user=request.user.id)
+    
+    return render(request, 'usuariopost.html',{"usuario":user, "avatar":avatares[0].image.url, "posts":ps})
 
 
 

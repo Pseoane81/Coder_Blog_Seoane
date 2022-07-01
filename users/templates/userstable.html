@@ -7,9 +7,11 @@
     <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">Usuario</th>
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
           <th scope="col">Email</th>
+          <th scope="col">Ver mas..</th>
           <th scope="col">Editar</th>
           <th scope="col">Borrar</th>
         </tr>
@@ -20,8 +22,10 @@
         <tr>
           <td >{{n.id}}</td>
           <td>{{n.username}}</td>
+          <td>{{n.first_name}}</td>
           <td>{{n.last_name}}</td>
           <td>{{n.email}}</td>
+          <td><a href="{% url 'userpost' n.id%}">Perfil y Posts</a></td>
           <td><a href="{% url 'editarperfil'%}">Editar</a></td>
           <td><a href="{% url 'borrarperfil' n.id%}">Borrar</td>
         </tr>

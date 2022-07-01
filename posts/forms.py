@@ -8,6 +8,6 @@ class PostForm(forms.Form):
     titulo = forms.CharField(max_length=40)
     contenido = forms.CharField(widget=forms.Textarea, max_length=3000)
     genero= forms.CharField(label='Categoria', widget=forms.Select(choices=categorias))
-    autor = forms.CharField(max_length=40)
+    #autor = forms.CharField(max_length=40)
     fecha = forms.DateField() 
     imagen = forms.ImageField()

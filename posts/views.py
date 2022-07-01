@@ -17,9 +17,9 @@ def nuevopost(request): #agrega nuevos posteos
         if form.is_valid():
 
             info = form.cleaned_data
-            blog = Post(titulo=info['titulo'], contenido=info['contenido'], fecha=info['fecha'],autor=info['autor'],genero=info['genero'])
+            print(request.POST)
+            blog = Post(titulo=info['titulo'], contenido=info['contenido'],autor=request.user.username, fecha=info['fecha'],genero=info['genero'])
             blog.imagen = request.FILES['imagen']
-
             blog.save()
 
             post= Post.objects.all()
