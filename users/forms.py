@@ -4,8 +4,9 @@ from django import forms
 
 
 class UserEditForm(UserCreationForm):
-    username = forms.CharField(label="Nombre")
-    last_name = forms.CharField(label="Apellido")
+    username = forms.CharField(label="username")
+    first_name = forms.CharField(label="first_name")
+    last_name = forms.CharField(label="last_name")
     password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Repetir Contraseña", widget=forms.PasswordInput)
 

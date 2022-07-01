@@ -26,7 +26,7 @@
           <td>{{n.last_name}}</td>
           <td>{{n.email}}</td>
           <td><a href="{% url 'userpost' n.id%}">Perfil y Posts</a></td>
-          <td><a href="{% url 'editarperfil'%}">Editar</a></td>
+          <td><a href="{% url 'editarperfil' n.id %}">Editar</a></td>
           <td><a href="{% url 'borrarperfil' n.id%}">Borrar</td>
         </tr>
         {% endfor %}

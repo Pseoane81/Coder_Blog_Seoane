@@ -81,9 +81,6 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrarse</a></li>
                         {% endif %}
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'editarperfil' %}">Editar Perfil</a></li>
-                        {% endif %}
-                        {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'perfiles' %}">Perfiles</a></li>
                         {% endif %}
                         {% if request.user.is_authenticated %}

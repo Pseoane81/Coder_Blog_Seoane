@@ -47,34 +47,35 @@ def entrar(request):
     return render(request, 'login.html', {'form': form})
 
 
-
-
-class EditarPerfil(View):
-    
-    def get(self, request):
-        usuario = request.user
-        form = UserEditForm(initial={"username":usuario.username})
-        print(form)
-        return render(request, 'editperfil.html', {'form': form,"usuario":usuario})
-
-    
-    def post(self, request):
-        usuario = request.user
+@login_required
+def editarperfil(request, id):
+    usuario = User.objects.get(id=id)
+    if request.method == "POST":
         form = UserEditForm(request.POST)
         if form.is_valid():
             informacion = form.cleaned_data
-
             usuario.username = informacion["username"]
-            usuario.first_name = informacion["last_name"]
+            usuario.first_name = informacion["first_name"]
             usuario.last_name = informacion["last_name"]
             password = informacion["password1"]
-            usuario.set_password(password)
+            password1 = informacion["password2"]
+            if password == password1:
+                usuario.set_password(password)
             usuario.save()
-            
+            img = avatar(image=request.FILES['imagen'],user_id=usuario.id)
+            img.save()
+                
             return redirect('home')
         else:
             form = UserEditForm()
-            return render(request, 'editperfil.html', {'form': form})
+            return render(request, 'editarperfilerror.html', {'form': form})
+    else:        
+        form = UserEditForm(initial={"username":usuario.username})
+        return render(request, 'editperfil.html', {'form': form,"usuario":usuario})
+
+    
+
+    
 
 
 
@@ -103,9 +104,10 @@ def perfiles(request):
 def userpost(request, id):
     user= User.objects.get(id=id)
     ps= Post.objects.filter(autor=user.username)
-    avatares = avatar.objects.filter(user=request.user.id)
+    avatares = avatar.objects.filter(user=id)
+    print(avatares)
     
-    return render(request, 'usuariopost.html',{"usuario":user, "avatar":avatares[0].image.url, "posts":ps})
+    return render(request, 'usuariopost.html',{"usuario":user,"posts":ps,"avatar":avatares[0].image.url})
 
 
 

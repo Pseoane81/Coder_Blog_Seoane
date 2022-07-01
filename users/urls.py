@@ -1,12 +1,12 @@
 from django.urls import path
-from users.views import Registro,  salir, entrar,  EditarPerfil, borrarperfil, perfiles, userpost
+from users.views import *
 from posts.views import *
 from users import views
 
 
 urlpatterns = [
     path('registro/', Registro.as_view(), name='register'),
-    path('editarperfil/', EditarPerfil.as_view(), name='editarperfil'),
+    path('editarperfil/<int:id>', editarperfil, name='editarperfil'),
     path('borrarperfil/<int:id>', borrarperfil, name='borrarperfil'),
     path('perfiles/', perfiles, name='perfiles'),
     path('logout/', salir, name='logout'),
