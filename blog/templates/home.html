@@ -9,14 +9,14 @@
             <h1 class="fw-bolder">Bienvenido a mi BLOG!</h1>
             <p class="lead mb-0">Publicaciones para el publico general!</p>
             <form action="{% url 'resbusqueda' %}" method="get">
-                    <div class=" busqueda">
+                    <div class="busqueda">
                         <div class="input-group">
                                 <input class="form-control" name="contenido" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
                                 <button class="btn btn-primary" id="button-search" type="submit">Go!</input>
-                             </form>   
-                        </div>
-                    </div>
-                
+                                </form>   
+                                </div>
+                            </div>
+                            
         
     </div>
 </header>
@@ -35,7 +35,7 @@
         <!-- Featured blog post-->
         <div class="card mb-4">
                 {% for n in posts %}
-                <a href="#!"><img class="card-img-topa" src="/media/{{ n.imagen }}" alt="..." /></a>
+                <img class="card-img-topa" src="/media/{{ n.imagen }}" alt="..." />
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>

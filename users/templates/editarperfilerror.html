@@ -1,6 +1,10 @@
 {% extends 'padre.html' %}
 {% load static %}
 
+{% block contenido-header %}
+<link href="{% static '/css/perfil.css' %}" rel="stylesheet" />
+{% endblock %}
+
 {% block contenido-home %}
 <div class="global-container">
 	<div class="card login-form">
