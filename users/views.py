@@ -62,6 +62,8 @@ def editarperfil(request, id):
             if password == password1:
                 usuario.set_password(password)
             usuario.save()
+            borrarimg = avatar.objects.get(user_id=id)
+            borrarimg.delete()
             img = avatar(image=request.FILES['imagen'],user_id=usuario.id)
             img.save()
                 
@@ -105,9 +107,10 @@ def userpost(request, id):
     user= User.objects.get(id=id)
     ps= Post.objects.filter(autor=user.username)
     avatares = avatar.objects.filter(user=id)
-    print(avatares)
-    
-    return render(request, 'usuariopost.html',{"usuario":user,"posts":ps,"avatar":avatares[0].image.url})
+    if len(ps) > 0:
+        return render(request, 'usuariopost.html',{"usuario":user,"posts":ps,"avatar":avatares[0].image.url,"cant":1})
+    else:
+        return render(request, 'usuariopost.html',{"usuario":user,"posts":ps,"avatar":avatares[0].image.url,"cant":0})
 
 
 

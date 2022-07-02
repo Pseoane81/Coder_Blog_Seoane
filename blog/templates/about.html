@@ -1,8 +1,51 @@
-{% extends "padre.html" %}
+{% extends 'padre.html' %}
 {% load static %}
+{% block contenido-header %}
+<link href="{% static '/css/perfil.css' %}" rel="stylesheet" />
+{% endblock %}
 
 {% block contenido-home %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="/media/avatares/seoane-removebg-preview_XLuTcC4.png">
+                <span class="font-weight-bold">Pablitoseoane</span>
+                <span class="text-black-50">pablitoseoane@gmail.com</span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Perfil</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="first name" value="Pablo"></div>
+                    <div class="col-md-6"><label class="labels">Apellido</label><input type="text" class="form-control" value="Seoane" placeholder="surname"></div>
+                </div>
+                <p>Apasionado de la tecnologia y los cambios
+                    hacia donde nos lleva, responsable de mi
+                    trabajo, y acompañado al equipo, siempre con
+                    ganas de conectar con otras personas que
+                    sientan lo mismo. Mientras disfruto de todos
+                    los aspectos de mi empleo, creo que mi etapa
+                    favorita en un proyecto es estar trabajando con
+                    el equipo para brindar la mejor solución. A
+                    medida que avanzamos a través de ese
+                    proceso de colaboración, las ideas comienzan
+                    a fluir y eso siempre es la parte más
+                    apasionante.
+                    <br>
+                    Este proyecto decidi hacerlo solo ya que los tiempos laborales que manejo
+                    actualmente no concordaban con los de mis compañeros.
+                    </p>
 
-<h1>viendo que poner aca</h1>
 
+                        
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
 {% endblock %}

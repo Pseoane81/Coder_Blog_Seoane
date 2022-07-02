@@ -68,7 +68,7 @@ def editpost(request,id):
             post.titulo = info["titulo"] 
             post.contenido = info["contenido"]
             post.fecha = info["fecha"]
-            post.autor = info["autor"]
+            post.autor = request.user.username
             post.genero = info["genero"]
             post.imagen = request.FILES['imagen']
             post.save()

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from posts.models import Post
-from users.models import User
+from users.models import User, avatar
 
 
 # Create your views here.
@@ -13,3 +13,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
+    
+    
+  

@@ -24,6 +24,7 @@
                     <div class="col-md-6"><label class="labels">Apellido</label><input type="text" class="form-control" value="{{usuario.last_name}}" placeholder="surname"></div>
                 </div>
                         <div class="row mt-3"> 
+                            {% if cant == 1 %}
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -35,7 +36,6 @@
                                     <th scope="col">Borrar</th>
                                     </tr>
                                 </thead>
-                                
                                 {% for n in posts %}
                                 <tbody>
                                     <tr>
@@ -46,8 +46,13 @@
                                     <td><a href="{% url 'editpost' n.id%}">Editar</a></td>
                                     <td><a href="{% url 'deletepost' n.id%}">Borrar</td>
                                     </tr>
-                                    {% endfor %}
-                            </table>
+                                </tbody>
+                                {% endfor %}
+                                {% else %}
+                                <h2>No hay posts para el usuario</h2>
+                                
+                                {% endif %}
+                                </table>
                         </div>
                 
                      </div>
