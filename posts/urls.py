@@ -13,5 +13,6 @@ urlpatterns = [
     path("programacion/", views.programacion, name="programacion"),
     path("tutoriales/", views.tutoriales, name="tutoriales"),
     path("resbusqueda/", views.res_busqueda, name="resbusqueda"),
+    path("msg/<int:id>", views.msg, name="msg"),
     
     ]

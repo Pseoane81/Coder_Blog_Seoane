@@ -9,10 +9,14 @@
 <div class="global-container">
 	<div class="card login-form">
 	<div class="card-body">
-		<h3 class="card-title text-center">Ingresa al Blog!</h3>
+		{% if error == 1 %}
+		<h3 class="card-title text-center">Prueba otra vez!</h3>
+		{% else %}
+		<h3 class="card-title text-center">Bienvenido al BLOG!</h3>
+		{% endif %}
 		<div class="card-text">
 			
-			
+				
 			<form action="" method="POST">
                 {% csrf_token %}
 				<!-- to error: add class "has-danger" -->

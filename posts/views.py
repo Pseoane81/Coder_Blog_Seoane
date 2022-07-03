@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.forms.models import model_to_dict
-from posts.models import Post
+from posts.models import Post, MsgPost
 from users.models import User
-from posts.forms import PostForm
+from posts.forms import *
 from django.contrib.auth.decorators import login_required
 
 
@@ -43,9 +43,11 @@ def tablapost(request):
 def post(request,id):
     
     post = Post.objects.filter(id=id)
-    
-    
-    return render(request, 'post.html',{"posts":post[0]})
+    msg = MsgPost.objects.filter(post=id)
+    if len(msg) > 0:
+        return render(request, 'post.html',{"posts":post[0],"msg":msg, "cant":1})
+    else:
+        return render(request, 'post.html',{"posts":post[0],"msg":msg, "cant":0})
 
 @login_required
 def deletepost(request,id):
@@ -123,3 +125,20 @@ def res_busqueda(request):
         else:
             return render(request, "busqueda404.html")
 
+def msg(request, id): #agrega nuevos posteos
+    post = Post.objects.get(id=id)
+    print(post)
+    if request.method == 'POST':
+        
+        form = MsgForm(request.POST)
+        print(request)
+        
+        if form.is_valid():
+
+            info = form.cleaned_data
+            msg = MsgPost(titulo=info['titulo'], contenido=info['contenido'],autor=request.user.username,post=post.id)
+            msg.save()
+
+            post= Post.objects.all()
+            
+            return render(request, 'posttable.html',{"posts":post})

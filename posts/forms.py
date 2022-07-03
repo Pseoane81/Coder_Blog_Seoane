@@ -11,3 +11,9 @@ class PostForm(forms.Form):
     #autor = forms.CharField(max_length=40)
     fecha = forms.DateField() 
     imagen = forms.ImageField()
+
+
+class MsgForm(forms.Form):
+    titulo = forms.CharField(max_length=40)
+    contenido = forms.CharField(widget=forms.Textarea, max_length=3000)
+    

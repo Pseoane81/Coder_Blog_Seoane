@@ -41,7 +41,8 @@ def entrar(request):
                 login(request, user)
                 return redirect('home')
             else:
-                return HttpResponse(f"Usuario Incorrecto")
+                form = AuthenticationForm
+                return render(request, 'login.html', {'form': form, "error":1})
 
     form = AuthenticationForm
     return render(request, 'login.html', {'form': form})
