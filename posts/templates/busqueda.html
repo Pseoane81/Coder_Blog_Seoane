@@ -38,8 +38,8 @@
                 <div class="card-body">
                     <div class="small text-muted">{{n.fecha}}</div>
                     <h2 class="card-title">{{n.titulo}}</h2>
-                    <h4 class="small text-muted">Autor: {{posts.autor}}</h4>
-                    <h4 class="small text-muted">Categoria: {{posts.genero}}</h4>
+                    <h4 class="small text-muted">Autor: {{n.autor}}</h4>
+                    <h4 class="small text-muted">Categoria: {{n.genero}}</h4>
                     <div class="card-text overtext">{{n.contenido}}</div>
                     <a class="btn btn-primary" href="{% url 'post' n.id%}">Read more →</a>
                 </div>
